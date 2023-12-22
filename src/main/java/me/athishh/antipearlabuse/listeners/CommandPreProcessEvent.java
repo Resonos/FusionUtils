@@ -1,5 +1,6 @@
 package me.athishh.antipearlabuse.listeners;
 
+import me.athishh.antipearlabuse.AntiPearlAbuse;
 import me.athishh.antipearlabuse.managers.PearlManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,10 +16,12 @@ public class CommandPreProcessEvent implements Listener {
 
     @EventHandler
     public void onCommandPreprocess(PlayerCommandPreprocessEvent event) {
+       // AntiPearlAbuse.getPlugin(AntiPearlAbuse.class).getLogger().info("#8");
         Player player = event.getPlayer();
         String command = event.getMessage().toLowerCase();
         if (command.startsWith("/spawn")) {
             PearlManager.clearEnderPearls(player);
+            //AntiPearlAbuse.getPlugin(AntiPearlAbuse.class).getLogger().info("#9");
         }
     }
 }

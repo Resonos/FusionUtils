@@ -14,6 +14,8 @@ public final class AntiPearlAbuse extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(" ");
         getServer().getPluginManager().registerEvents(new me.athishh.antipearlabuse.listeners.CommandPreProcessEvent(), this);
         getServer().getPluginManager().registerEvents(new me.athishh.antipearlabuse.listeners.PlayerQuitEvent(), this);
+        getServer().getPluginManager().registerEvents(new me.athishh.antipearlabuse.listeners.ProjectileEvent(), this);
+
 
     }
 
