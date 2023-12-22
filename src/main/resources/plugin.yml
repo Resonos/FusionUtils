@@ -1,0 +1,4 @@
+name: AntiPearlAbuse
+version: '1.0'
+main: me.athishh.antipearlabuse.antipearlabuse.AntiPearlAbuse
+author: Athishh
