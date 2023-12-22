@@ -2,6 +2,7 @@ package me.athishh.antipearlabuse.listeners;
 
 import me.athishh.antipearlabuse.AntiPearlAbuse;
 import me.athishh.antipearlabuse.managers.PearlManager;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,6 +23,7 @@ public class ProjectileEvent implements Listener {
         Projectile projectile = event.getEntity();
         if (projectile instanceof org.bukkit.entity.EnderPearl) {
             PearlManager.activePearls.put(projectile.getUniqueId(), projectile);
+            Bukkit.getConsoleSender().sendMessage("Projectile launch detected from " +event.getEntity().getName());
         }
     }
 
@@ -31,6 +33,7 @@ public class ProjectileEvent implements Listener {
         Projectile projectile = event.getEntity();
         if (projectile instanceof org.bukkit.entity.EnderPearl) {
             PearlManager.activePearls.remove(projectile.getUniqueId());
+            Bukkit.getConsoleSender().sendMessage("Projectile removed. Projectile of " +event.getEntity().getName());
         }
     }
 }

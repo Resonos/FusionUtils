@@ -1,7 +1,7 @@
 package me.athishh.antipearlabuse.listeners;
 
-import me.athishh.antipearlabuse.AntiPearlAbuse;
 import me.athishh.antipearlabuse.managers.PearlManager;
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -18,5 +18,6 @@ public class PlayerQuitEvent implements Listener {
     public void onPlayerQuit(org.bukkit.event.player.PlayerQuitEvent event) {
         PearlManager.clearEnderPearls(event.getPlayer());
        // AntiPearlAbuse.getPlugin(AntiPearlAbuse.class).getLogger().info("#7");
+        Bukkit.getConsoleSender().sendMessage("Player quit detected. Removing pearl of "+event.getPlayer().getName());
     }
 }

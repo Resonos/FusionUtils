@@ -1,5 +1,8 @@
 package me.athishh.antipearlabuse;
 
+import me.athishh.antipearlabuse.listeners.CommandPreProcessEvent;
+import me.athishh.antipearlabuse.listeners.PlayerQuitEvent;
+import me.athishh.antipearlabuse.listeners.ProjectileEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -12,9 +15,9 @@ public final class AntiPearlAbuse extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage("§aAntiPearlAbuse has been enabled!");
         Bukkit.getConsoleSender().sendMessage("§aDeveloped by Athishh");
         Bukkit.getConsoleSender().sendMessage(" ");
-        getServer().getPluginManager().registerEvents(new me.athishh.antipearlabuse.listeners.CommandPreProcessEvent(), this);
-        getServer().getPluginManager().registerEvents(new me.athishh.antipearlabuse.listeners.PlayerQuitEvent(), this);
-        getServer().getPluginManager().registerEvents(new me.athishh.antipearlabuse.listeners.ProjectileEvent(), this);
+        getServer().getPluginManager().registerEvents(new CommandPreProcessEvent(), this);
+        getServer().getPluginManager().registerEvents(new PlayerQuitEvent(), this);
+        getServer().getPluginManager().registerEvents(new ProjectileEvent(), this);
 
 
     }

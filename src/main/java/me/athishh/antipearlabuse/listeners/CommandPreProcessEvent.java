@@ -2,6 +2,7 @@ package me.athishh.antipearlabuse.listeners;
 
 import me.athishh.antipearlabuse.AntiPearlAbuse;
 import me.athishh.antipearlabuse.managers.PearlManager;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,6 +22,7 @@ public class CommandPreProcessEvent implements Listener {
         String command = event.getMessage().toLowerCase();
         if (command.startsWith("/spawn")) {
             PearlManager.clearEnderPearls(player);
+            Bukkit.getConsoleSender().sendMessage("Player /spawn command detected.. Removing pearl of "+event.getPlayer().getName());
             //AntiPearlAbuse.getPlugin(AntiPearlAbuse.class).getLogger().info("#9");
         }
     }
