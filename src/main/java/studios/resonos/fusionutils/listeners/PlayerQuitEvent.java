@@ -1,6 +1,6 @@
-package me.athishh.antipearlabuse.listeners;
+package studios.resonos.fusionutils.listeners;
 
-import me.athishh.antipearlabuse.managers.PearlManager;
+import studios.resonos.fusionutils.managers.PearlManager;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -17,7 +17,7 @@ public class PlayerQuitEvent implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerQuit(org.bukkit.event.player.PlayerQuitEvent event) {
         PearlManager.clearEnderPearls(event.getPlayer());
-       // AntiPearlAbuse.getPlugin(AntiPearlAbuse.class).getLogger().info("#7");
+       // FusionUtils.getPlugin(FusionUtils.class).getLogger().info("#7");
         Bukkit.getConsoleSender().sendMessage("Player quit detected. Removing pearl of "+event.getPlayer().getName());
     }
 }

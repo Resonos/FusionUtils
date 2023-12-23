@@ -1,7 +1,5 @@
-package me.athishh.antipearlabuse.managers;
+package studios.resonos.fusionutils.managers;
 
-import me.athishh.antipearlabuse.AntiPearlAbuse;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 
@@ -18,11 +16,11 @@ public class PearlManager {
     public static HashMap<UUID, Projectile> activePearls = new HashMap<>();
 
     public static void clearEnderPearls(Player player) {
-       // AntiPearlAbuse.getPlugin(AntiPearlAbuse.class).getLogger().info("#1");
+       // FusionUtils.getPlugin(FusionUtils.class).getLogger().info("#1");
         for (Projectile pearl : activePearls.values()) {
-            //AntiPearlAbuse.getPlugin(AntiPearlAbuse.class).getLogger().info("#2");
+            //FusionUtils.getPlugin(FusionUtils.class).getLogger().info("#2");
             if ((pearl.getShooter() instanceof Player) && pearl.getShooter().equals(player)) {
-                //AntiPearlAbuse.getPlugin(AntiPearlAbuse.class).getLogger().info("#3");
+                //FusionUtils.getPlugin(FusionUtils.class).getLogger().info("#3");
                 pearl.remove();
             }
         }
