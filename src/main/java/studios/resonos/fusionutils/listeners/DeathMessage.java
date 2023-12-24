@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
  */
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import studios.resonos.fusionutils.utils.CC;
 
 import java.util.Random;
 
@@ -61,8 +62,8 @@ public class DeathMessage implements Listener {
             String victimName = event.getEntity().getName();
             String killerName = event.getEntity().getKiller().getName();
 
-            String deathMessage = getRandomDeathMessage() + killerName;
-            event.setDeathMessage(victimName + deathMessage);
+            String deathMessage = getRandomDeathMessage() + " &2⚔ " + killerName;
+            event.setDeathMessage(CC.translate( "&4☠ " + victimName + "&7" + deathMessage));
         } else {
             // Set a default death message for non-player kills
             event.setDeathMessage(event.getEntity().getName() + " died");

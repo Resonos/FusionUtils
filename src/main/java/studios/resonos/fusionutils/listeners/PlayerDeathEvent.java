@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import studios.resonos.fusionutils.WorldGuardEvents;
+import studios.resonos.fusionutils.utils.CC;
 
 import java.util.UUID;
 
@@ -21,6 +22,7 @@ public class PlayerDeathEvent implements Listener {
         Player victim = event.getEntity().getPlayer();
         Player killer = victim.getKiller();
         UUID uuid = victim.getUniqueId();
+        killer.sendTitle(CC.translate("&4⚔"), CC.translate("&2Killed &2" + victim.getName()), 10, 20, 10);
         victim.sendMessage("You have been healed!");
         victim.setHealth(20.0);
         event.setDeathMessage(null);
