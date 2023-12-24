@@ -24,6 +24,14 @@ public class CommandPreProcessEvent implements Listener {
             event.getPlayer().getInventory().clear();
             event.getPlayer().setHealth(20.0);
             event.getPlayer().getActivePotionEffects().clear();
+        } else if (command.startsWith("/kits")) {
+            if(!(player.hasPermission("fusion.playerkits.kits"))) {
+                event.setCancelled(true);
+            }
+        } else if (command.startsWith("/playerkits")) {
+            if(!(player.hasPermission("fusion.playerlits.playerkits"))) {
+                event.setCancelled(true);
+            }
         }
     }
 }
