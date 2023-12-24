@@ -1,2 +1,3 @@
-# AntiPearlAbuse
-Plugin to cancel ender pearls if player leaves the server or goes to spawn
+Fusion Network's Practice plugin
+
+this dummy @Athishh forgot to change this
