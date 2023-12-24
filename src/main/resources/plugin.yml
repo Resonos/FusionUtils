@@ -1,4 +1,6 @@
 name: FusionUtils
 version: '1.0'
-main: me.athishh.antipearlabuse.FusionUtils
+main: studios.resonos.fusionutils.FusionUtils
 author: Athishh
+depend:
+  - WorldGuard

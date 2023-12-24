@@ -117,6 +117,13 @@
               <version>7.0.9</version>
               <scope>provided</scope>
           </dependency>
+        <dependency>
+              <groupId>net.raidstone.wgevents</groupId>
+              <artifactId>wgevents</artifactId>
+              <version>1.0</version>
+              <scope>system</scope>
+            <systemPath>C:/Users/Main/Documents/GitHub/FusionUtils/libs/wgevents.jar</systemPath>
+          </dependency>
       <dependency>
           <groupId>org.spigotmc</groupId>
           <artifactId>spigot-api</artifactId>
