@@ -25,10 +25,7 @@ public final class  FusionUtils extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage("§aDeveloped by Resonos Studios for Fusion Network");
         Bukkit.getConsoleSender().sendMessage(" ");
         this.saveDefaultConfig();
-
-        //commands
-        getCommand("setspawn").setExecutor(new SetSpawn());
-        getCommand("spawn").setExecutor(new SpawnCommand());
+        
 
         // listeners
         getServer().getPluginManager().registerEvents(new CommandPreProcessEvent(), this);
