@@ -62,11 +62,11 @@ public class DeathMessage implements Listener {
             String victimName = event.getEntity().getName();
             String killerName = event.getEntity().getKiller().getName();
 
-            String deathMessage = getRandomDeathMessage() + " &2⚔ " + killerName;
-            event.setDeathMessage(CC.translate( "&4☠ " + victimName + "&7" + deathMessage));
+            String deathMessage = getRandomDeathMessage() + " &a⚔ " + killerName;
+            event.setDeathMessage(CC.translate( "&c☠ " + victimName + "&7" + deathMessage));
         } else {
             // Set a default death message for non-player kills
-            event.setDeathMessage(event.getEntity().getName() + " died");
+            event.setDeathMessage(event.getEntity().getName() + " &cdied");
         }
     }
 

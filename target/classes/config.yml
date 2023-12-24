@@ -1,0 +1,15 @@
+#Spawn Configuration
+#Spawn Configuration
+#Spawn Configuration
+settings:
+  tpmessage-enable: true
+  spawn-on-join: true
+
+messages:
+  tpmessage: "&aYou have been teleported to the Spawn"
+  error-nospawnpoint: "&cNo Spawn Point set"
+  success-setspawn: "&aSpawn point set Correctly"
+  cmd-spawn-usage: "&cUsage: /spawn"
+  cmd-setspawn-usage: "&cUsage: /setspawn"
+
+spawn: {}
