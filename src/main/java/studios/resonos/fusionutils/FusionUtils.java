@@ -9,7 +9,7 @@ import studios.resonos.fusionutils.listeners.SpawnEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class FusionUtils extends JavaPlugin {
+public final class  FusionUtils extends JavaPlugin {
     public static FusionUtils plugin;
 
     @Override
