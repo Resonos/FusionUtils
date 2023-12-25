@@ -1,5 +1,6 @@
 package studios.resonos.fusionutils.listeners;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 
 /**
@@ -8,6 +9,8 @@ import org.bukkit.event.Listener;
  * Created on: 12/24/2023
  */
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import studios.resonos.fusionutils.utils.CC;
 
@@ -58,16 +61,71 @@ public class DeathMessage implements Listener {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
-        if (event.getEntity().getKiller() != null) {
-            String victimName = event.getEntity().getName();
-            String killerName = event.getEntity().getKiller().getName();
-
-            String deathMessage = getRandomDeathMessage() + " &a⚔ " + killerName;
-            event.setDeathMessage(CC.translate( "&c☠ " + victimName + "&7" + deathMessage));
+        EntityDamageEvent lastDamageCause = event.getEntity().getLastDamageCause();
+        String cause = "died";
+        if (lastDamageCause instanceof EntityDamageByEntityEvent) {
+            switch (lastDamageCause.getCause()) {
+                case ENTITY_ATTACK:
+                    cause =  " &7was defeated by &x&0&0&e&5&0&0\uD83D\uDDE1 " + event.getEntity().getKiller().getName() + "&7(&x&f&c&0&0&0&0" + (double) event.getEntity().getKiller().getHealth() + "&x&f&c&0&0&0&0♥&7)";
+                    break;
+                case ENTITY_SWEEP_ATTACK:
+                    cause =  " &7was defeated by &x&0&0&e&5&0&0\uD83D\uDDE1 " + event.getEntity().getKiller().getName() + "&7(&x&f&c&0&0&0&0" + (double)  event.getEntity().getKiller().getHealth() + "&x&f&c&0&0&0&0♥&7)";
+                    break;
+                case PROJECTILE:
+                    cause = " &7was shot by &x&0&0&e&5&0&0\uD83D\uDDE1 " + event.getEntity().getKiller().getName() + "&7(&x&f&c&0&0&0&0" + (double)  event.getEntity().getKiller().getHealth() + "&x&f&c&0&0&0&0♥&7)";
+                    break;
+            }
         } else {
-            // Set a default death message for non-player kills
-            event.setDeathMessage(event.getEntity().getName() + " &cdied");
+            switch (lastDamageCause.getCause()) {
+                case KILL:
+                    cause = " &7was killed";
+                    break;
+                case SUFFOCATION:
+                    cause = " &7forgot how to breathe";
+                    break;
+                case FALL:
+                    cause = " &7tried the leap of faith";
+                    break;
+                case FIRE:
+                    cause = " &7just got Roasted";
+                    break;
+                case LAVA:
+                    cause = " &7thought swimming in lava was a good idea";
+                    break;
+                case DROWNING:
+                    cause = " &7never learnt how to swim";
+                    break;
+                case BLOCK_EXPLOSION:
+                    cause = " &7was blown up";
+                    break;
+                case ENTITY_EXPLOSION:
+                    cause = " &7was blown up";
+                    break;
+                case VOID:
+                    cause = " &7fell into to the void";
+                    break;
+                case LIGHTNING:
+                    cause = " &7was struck by lightning";
+                    break;
+                case SUICIDE:
+                    cause = " &7committed suicide";
+                    break;
+                case STARVATION:
+                    cause = " &7was starved to death";
+                    break;
+                case POISON:
+                    cause = " &7was poisoned";
+                    break;
+                case MAGIC:
+                    cause = " &7was killed using magic";
+                    break;
+                case WITHER:
+                    cause = " &7withered away";
+                    break;
+            }
         }
+
+        Bukkit.broadcastMessage(CC.hex("&x&f&c&0&0&0&0☠ " + event.getEntity().getPlayer().getName() + cause));
     }
 
     private String getRandomDeathMessage() {

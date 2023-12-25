@@ -19,17 +19,12 @@ public class CommandPreProcessEvent implements Listener {
        // FusionUtils.getPlugin(FusionUtils.class).getLogger().info("#8");
         Player player = event.getPlayer();
         String command = event.getMessage().toLowerCase();
-        if (command.startsWith("/spawn")) {
-            PearlManager.clearEnderPearls(player);
-            event.getPlayer().getInventory().clear();
-            event.getPlayer().setHealth(20.0);
-            event.getPlayer().getActivePotionEffects().clear();
-        } else if (command.startsWith("/kits")) {
+         if (command.startsWith("/kits")) {
             if(!(player.hasPermission("fusion.playerkits.kits"))) {
                 event.setCancelled(true);
             }
         } else if (command.startsWith("/playerkits")) {
-            if(!(player.hasPermission("fusion.playerlits.playerkits"))) {
+            if(!(player.hasPermission("fusion.playerkits.playerkits"))) {
                 event.setCancelled(true);
             }
         }

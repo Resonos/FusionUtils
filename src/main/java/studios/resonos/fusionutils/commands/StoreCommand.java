@@ -7,7 +7,7 @@ import studios.resonos.fusionutils.lib.commandhandler.Command;
 import studios.resonos.fusionutils.lib.commandhandler.paramter.Param;
 
 public class StoreCommand {
-    @Command(names = {"store"}, permission = "fusion.stire", playerOnly = true)
+    @Command(names = {"store"}, playerOnly = true)
     public void StoreCommand(Player player) {
         player.sendMessage("Visit our store!");
         TextComponent component = new TextComponent("STORE");

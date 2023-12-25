@@ -23,40 +23,6 @@ public class PlayerDeathEvent implements Listener {
     public void onPlayerDeath(org.bukkit.event.entity.PlayerDeathEvent event) {
         Player victim = event.getEntity().getPlayer();
         Player killer = victim.getKiller();
-        UUID uuid = victim.getUniqueId();
-        killer.sendTitle(CC.translate("&4⚔"), CC.translate("&2Killed &2" + victim.getName()), 10, 20, 10);
-        victim.sendMessage("You have been healed!");
-        victim.setHealth(20.0);
-        event.setDeathMessage(null);
-        EntityDamageEvent lastDamageCause = victim.getLastDamageCause();
-        if (lastDamageCause.equals(ENTITY_ATTACK)) {
-            Bukkit.broadcastMessage(CC.translate("&4☠ " + victim.getName() + " &7was defeated by &2\uD83D\uDDE1" + killer.getName()));
-        } else if (lastDamageCause.equals(PROJECTILE)) {
-            Bukkit.broadcastMessage(CC.translate("&4☠ " + victim.getName() + " &7was shot by &2\uD83D\uDDE1" + killer.getName()));
-        } else if (lastDamageCause.equals(BLOCK_EXPLOSION)) {
-            Bukkit.broadcastMessage(CC.translate("&4☠ " + victim.getName() + " &7was blown to bits"));
-        } else if (lastDamageCause.equals(MAGIC)) {
-            Bukkit.broadcastMessage(CC.translate("&4☠ " + victim.getName() + " &7was killed using magic"));
-        } else if (lastDamageCause.equals(FALL)) {
-            Bukkit.broadcastMessage(CC.translate("&4☠ " + victim.getName() + " &7tried the leap of faith"));
-        } else if (lastDamageCause.equals(LAVA)) {
-            Bukkit.broadcastMessage(CC.translate("&4☠ " + victim.getName() + " &7thought swimming in lava was a good idea"));
-        } else if (lastDamageCause.equals(FIRE)) {
-            Bukkit.broadcastMessage(CC.translate("&4☠ " + victim.getName() + " &7just got Roasted"));
-        } else if (lastDamageCause.equals(DROWNING)) {
-            Bukkit.broadcastMessage(CC.translate("&4☠ " + victim.getName() + " &7never learned how to swim"));
-        } else if (lastDamageCause.equals(STARVATION)) {
-            Bukkit.broadcastMessage(CC.translate("&4☠ " + victim.getName() + " &7forgot to eat"));
-        } else if (lastDamageCause.equals(LIGHTNING)) {
-            Bukkit.broadcastMessage(CC.translate("&4☠ " + victim.getName() + " &7was struck by lightning"));
-        } else if (lastDamageCause.equals(SUFFOCATION)) {
-            Bukkit.broadcastMessage(CC.translate("&4☠ " + victim.getName() + "&7forgot how to breathe"));
-        } else if (lastDamageCause.equals(VOID)) {
-            Bukkit.broadcastMessage(CC.translate("&4☠ " + victim.getName() + " &7fell into the void"));
-        } else {
-            Bukkit.broadcastMessage(CC.translate("&4☠ " + victim.getName() + " &7died"));
-        }
-
         if (WorldGuardEvents.isPlayerInAnyRegion(killer.getUniqueId(), "nethpot")) {
             heal(killer);
             clearInventory(killer);

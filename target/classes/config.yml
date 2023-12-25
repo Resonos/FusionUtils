@@ -12,4 +12,4 @@ messages:
   cmd-spawn-usage: "&cUsage: /spawn"
   cmd-setspawn-usage: "&cUsage: /setspawn"
 
-spawn: {}
+spawn:

@@ -4,6 +4,10 @@ package studios.resonos.fusionutils.utils;
 import org.bukkit.ChatColor;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static org.bukkit.ChatColor.COLOR_CHAR;
 
 public class CC {
 
@@ -138,5 +142,24 @@ public class CC {
                 (color != net.md_5.bungee.api.ChatColor.STRIKETHROUGH && color != net.md_5.bungee.api.ChatColor.MAGIC
                         && color != net.md_5.bungee.api.ChatColor.BOLD && color != net.md_5.bungee.api.ChatColor.ITALIC
                         && color != net.md_5.bungee.api.ChatColor.UNDERLINE && color != net.md_5.bungee.api.ChatColor.RESET);
+    }
+
+    public static String hex(String message) {
+        Pattern pattern = Pattern.compile("#[a-fA-F0-9]{6}");
+        Matcher matcher = pattern.matcher(message);
+        while (matcher.find()) {
+            String hexCode = message.substring(matcher.start(), matcher.end());
+            String replaceSharp = hexCode.replace('#', 'x');
+
+            char[] ch = replaceSharp.toCharArray();
+            StringBuilder builder = new StringBuilder("");
+            for (char c : ch) {
+                builder.append("&" + c);
+            }
+
+            message = message.replace(hexCode, builder.toString());
+            matcher = pattern.matcher(message);
+        }
+        return ChatColor.translateAlternateColorCodes('&', message);
     }
 }
