@@ -2,6 +2,9 @@ package studios.resonos.fusionutils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import studios.resonos.fusionutils.commands.SetSpawn;
+import studios.resonos.fusionutils.commands.SpawnCommand;
+import studios.resonos.fusionutils.commands.StoreCommand;
 import studios.resonos.fusionutils.lib.commandhandler.CommandHandler;
 import studios.resonos.fusionutils.listeners.*;
 import studios.resonos.fusionutils.tasks.TaskManager;
@@ -30,7 +33,10 @@ public final class  FusionUtils extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new DeathMessage(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathEvent(), this);
         getServer().getPluginManager().registerEvents(new PlayerKillListener(), this);
-        CommandHandler.registerProcessors("studios.resonos.fusionutils.commands", this);
+
+        CommandHandler.registerCommands(SetSpawn.class, this);
+        CommandHandler.registerCommands(SpawnCommand.class, this);
+        CommandHandler.registerCommands(StoreCommand.class, this);
 
 
         TaskManager.init();
