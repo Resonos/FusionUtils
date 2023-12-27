@@ -66,13 +66,13 @@ public class DeathMessage implements Listener {
         if (lastDamageCause instanceof EntityDamageByEntityEvent) {
             switch (lastDamageCause.getCause()) {
                 case ENTITY_ATTACK:
-                    cause =  " &7was defeated by &x&0&0&e&5&0&0\uD83D\uDDE1 " + event.getEntity().getKiller().getName() + "&7(&x&f&c&0&0&0&0" + (double) event.getEntity().getKiller().getHealth() + "&x&f&c&0&0&0&0♥&7)";
+                    cause =  " &7was defeated by &x&0&0&e&5&0&0\uD83D\uDDE1 " + event.getEntity().getKiller().getName() + "&7(&x&f&c&0&0&0&0" + ((int) event.getEntity().getKiller().getHealth()) + "&x&f&c&0&0&0&0♥&7)";
                     break;
                 case ENTITY_SWEEP_ATTACK:
-                    cause =  " &7was defeated by &x&0&0&e&5&0&0\uD83D\uDDE1 " + event.getEntity().getKiller().getName() + "&7(&x&f&c&0&0&0&0" + (double)  event.getEntity().getKiller().getHealth() + "&x&f&c&0&0&0&0♥&7)";
+                    cause =  " &7was defeated by &x&0&0&e&5&0&0\uD83D\uDDE1 " + event.getEntity().getKiller().getName() + "&7(&x&f&c&0&0&0&0" + ((int)  event.getEntity().getKiller().getHealth()) + "&x&f&c&0&0&0&0♥&7)";
                     break;
                 case PROJECTILE:
-                    cause = " &7was shot by &x&0&0&e&5&0&0\uD83D\uDDE1 " + event.getEntity().getKiller().getName() + "&7(&x&f&c&0&0&0&0" + (double)  event.getEntity().getKiller().getHealth() + "&x&f&c&0&0&0&0♥&7)";
+                    cause = " &7was shot by &x&0&0&e&5&0&0\uD83D\uDDE1 " + event.getEntity().getKiller().getName() + "&7(&x&f&c&0&0&0&0" + ((int)  event.getEntity().getKiller().getHealth()) + "&x&f&c&0&0&0&0♥&7)";
                     break;
             }
         } else {
