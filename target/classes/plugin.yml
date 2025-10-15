@@ -1,6 +1,0 @@
-name: FusionUtils
-version: '1.0'
-main: studios.resonos.fusionutils.FusionUtils
-author: Athishh
-depend:
-  - WorldGuard
